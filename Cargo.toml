@@ -1,0 +1,11 @@
+[package]
+name = "keysend"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wayland-client = "0.31.14"
+wayland-protocols-misc = { version = "0.3.12", features = ["client"] }
+
+[profile.release]
+debug = false
