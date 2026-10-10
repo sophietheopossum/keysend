@@ -12,8 +12,10 @@
 //!
 //! Build it OUT of the repo, the way everything else here is built:
 //!
-//!     CARGO_TARGET_DIR=~/.cache/claude-builds/keysend-target \
-//!         cargo build --release --offline --manifest-path tools/keysend/Cargo.toml
+//! ```sh
+//! CARGO_TARGET_DIR=~/.cache/claude-builds/keysend-target \
+//!     cargo build --release --offline --manifest-path tools/keysend/Cargo.toml
+//! ```
 //!
 //! Focusing the target first is protocol-specific, and the two shapes differ:
 //!   - a toplevel (MinkaLedger): activate it over the ShojiWM IPC,
