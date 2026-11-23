@@ -10,11 +10,10 @@
 //! reads the seat's real keymap and hands that exact fd back. The focused client
 //! therefore sees the layout it already had, and no other client is touched at all.
 //!
-//! Build it OUT of the repo, the way everything else here is built:
+//! It is a member of the MinkaDE Cargo workspace, so it builds into MinkaDE's target/:
 //!
 //! ```sh
-//! CARGO_TARGET_DIR=~/.cache/claude-builds/keysend-target \
-//!     cargo build --release --offline --manifest-path tools/keysend/Cargo.toml
+//! cargo build --release --offline -p keysend    # target/release/keysend
 //! ```
 //!
 //! Focusing the target first is protocol-specific, and the two shapes differ:
