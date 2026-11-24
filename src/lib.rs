@@ -10,10 +10,12 @@
 //! reads the seat's real keymap and hands that exact fd back. The focused client
 //! therefore sees the layout it already had, and no other client is touched at all.
 //!
-//! It is a member of the MinkaDE Cargo workspace, so it builds into MinkaDE's target/:
+//! It is part of MinkaDE's one binary, `minka` (the minkade package installs
+//! /usr/bin/keysend as a link to it). From a checkout:
 //!
 //! ```sh
-//! cargo build --release --offline -p keysend    # target/release/keysend
+//! cargo build --profile release-fast -p minka
+//! target/release-fast/minka keysend <key>
 //! ```
 //!
 //! Focusing the target first is protocol-specific, and the two shapes differ:
@@ -114,7 +116,7 @@ impl Dispatch<ZwpVirtualKeyboardV1, ()> for App {
     fn event(_: &mut Self, _: &ZwpVirtualKeyboardV1, _: <ZwpVirtualKeyboardV1 as wayland_client::Proxy>::Event, _: &(), _: &Connection, _: &QueueHandle<Self>) {}
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+pub fn main() -> Result<(), Box<dyn std::error::Error>> {
     let name = std::env::args().nth(1).unwrap_or_else(|| "escape".into());
     let code = keycode(&name).ok_or_else(|| format!("unknown key: {name}"))?;
 

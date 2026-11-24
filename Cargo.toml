@@ -3,6 +3,13 @@ name = "keysend"
 version = "0.1.0"
 edition = "2021"
 
+# A library: MinkaDE's one binary (minka/, at the top of the checkout) runs it
+# as `keysend`. Nothing is built from here alone.
+[lib]
+name = "keysend"
+path = "src/lib.rs"
+doctest = false
+
 [dependencies]
 wayland-client = "0.31.14"
 wayland-protocols-misc = { version = "0.3.12", features = ["client"] }
