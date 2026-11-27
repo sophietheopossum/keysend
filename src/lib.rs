@@ -22,8 +22,8 @@
 //!   - a toplevel (MinkaLedger): activate it over the ShojiWM IPC,
 //!     {"method":"windows.activate","params":{"windowId":"0x91"}}
 //!   - a layer surface (MinkaShell's start menu, MinkaShot's capture overlay):
-//!     there is nothing to activate -- they set WlrLayershell.keyboardFocus from
-//!     their own open/armed state, so trigger that state and focus follows.
+//!     there is nothing to activate -- they take the keyboard from their own
+//!     open/armed state, so trigger that state and focus follows.
 //!
 //! Pair it with a probe copy of the app carrying an IpcHandler that reports
 //! Window.activeFocusItem. Reading the source cannot tell you where focus is: on
